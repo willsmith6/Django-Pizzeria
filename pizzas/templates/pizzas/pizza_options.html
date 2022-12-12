@@ -1,0 +1,27 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p> Here is a list of our Pizzas </p>
+
+<p>
+    {% load static %}
+    <ing sfc="{{ pizza.image.url }}"
+</p>
+
+<ul>
+    {% for pizza_option in all_pizzas %}
+
+    <li>
+        <a href="{% url 'pizzas:pizza_option' pizza_option.id %}"> {{ pizza_option }} </a>
+    </li>
+
+    {% empty %}
+    <li> No Pizzas have been added yet.</li>
+    {% endfor %}
+
+</ul>
+
+<a href="{% url 'pizzas:add_comment' %}">Add a new comment</a>
+
+{% endblock content %}
